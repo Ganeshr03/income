@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income Tax Calculator Portal (2025-26)</title>
+  <link rel="stylesheet" href="tax_portal.css">
+</head>
+<body>
+  <div class="portal-bg">
+    <div class="portal-container">
+      <h1>Income Tax Calculator <span class="year">2025-26</span></h1>
+      <form id="taxForm" onsubmit="event.preventDefault(); calculateTax();">
+        <div class="input-row">
+          <label>Annual Income (₹):<input type="number" id="income" required></label>
+          <label>Age Group:
+            <select id="ageGroup">
+              <option value="<60">Below 60</option>
+              <option value="60-80">60 - 80</option>
+              <option value=">80">Above 80</option>
+            </select>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Deductions</legend>
+          <div class="input-row">
+            <label>80C (Max 1,50,000):<input type="number" id="ded80c" min="0"></label>
+            <label>80D:<input type="number" id="ded80d" min="0"></label>
+            <label>HRA:<input type="number" id="hra" min="0"></label>
+            <label>Other:<input type="number" id="otherded" min="0"></label>
+          </div>
+        </fieldset>
+        <div class="std-deduction-info">
+          <span class="old">Old Regime Std Deduction: ₹50,000</span>
+          <span class="new">New Regime Std Deduction: ₹75,000</span>
+        </div>
+        <button type="submit">Calculate Tax</button>
+      </form>
+      <div id="result"></div>
+    </div>
+  </div>
+  <script src="tax_portal.js"></script>
+</body>
+</html>
